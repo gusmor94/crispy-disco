@@ -2,8 +2,7 @@
 var lowerChar = "abcdefghijklmnopqrstuvwxyz";
 var upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numChar = "1234567890";
-var specialChar = "!@#$&?";
-var characters = ""; 
+var specialChar = "!@#$&?"; 
 
 function generatePassword() {
   
@@ -15,12 +14,12 @@ function generatePassword() {
   }
   console.log(passwordLength);
 
+  var characters = "";
   // lowercase characters
   var lowercase = window.confirm("Would you like lowercase characters in your password?");
   if (lowercase) {
     characters = characters + lowerChar;
   }
-  else {};
   console.log(lowercase);
 
   // uppercase characters
@@ -28,7 +27,6 @@ function generatePassword() {
   if (uppercase) {
     characters = characters + upperChar;
   }
-  else {};
   console.log(uppercase);
   
   // numeric characters
@@ -36,7 +34,6 @@ function generatePassword() {
   if(numbers) {
     characters = characters + numChar;
   }
-  else {};
   console.log(numbers);
 
   // special characters 
@@ -44,7 +41,6 @@ function generatePassword() {
   if(symbols) {
     characters = characters + specialChar;
   }
-  else {};
   console.log(symbols);
 
   // generated password
@@ -54,6 +50,11 @@ function generatePassword() {
     password = password + characters[randomPass];
   }
   console.log(password);
+
+  if (!lowercase && !uppercase && !numbers && !symbols) {
+    window.alert("Please pick at least one set of characters to generate a password.");
+    return generatePassword();
+  }
   return password;
 }
 
